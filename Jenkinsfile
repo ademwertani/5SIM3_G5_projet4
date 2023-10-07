@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                // Récupère le code de votre branche spécifique
-                checkout([$class: 'GitSCM', branches: [[name: 'adem_wertani_5SIM3_G5']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/ademwertani/5SIM3_G5_projet4.git']]])
+                // Récupère le code source depuis le référentiel en utilisant le jeton d'authentification
+                checkout([$class: 'GitSCM', branches: [[name: 'adem_wertani_5SIM3_G5']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', credentialsId: 'PAT_JENKINS']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/ademwertani/5SIM3_G5_projet4.git']]])
             }
         }
         
